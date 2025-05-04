@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Scanner | AgriSmart</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    .scanner-container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .scanner-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2e7d32;
+    }
+
+    input[type="file"] {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    button {
+      padding: 12px;
+      width: 100%;
+      font-size: 16px;
+      font-weight: bold;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+    }
+
+    .result {
+      margin-top: 25px;
+      padding: 20px;
+      background-color: #f1f8e9;
+      border-left: 5px solid #66bb6a;
+    }
+
+    .preview img {
+      width: 100%;
+      margin-top: 15px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">🌾 AgriSmart</div>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/recommend">Recommendation</a></li>
+      <li><a href="/scanner">Scanner</a></li>
+      <li><a href="/chatbot">Chatbot</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="scanner-container">
+  <h2>Crop Disease Scanner</h2>
+  <form method="POST" enctype="multipart/form-data">
+    <input type="file" name="crop_image" accept="image/*" required>
+    <button type="submit">Scan Image</button>
+  </form>
+
+  {% if message %}
+  <div class="result">
+    <strong>Result:</strong> {{ message }}<br>
+    <strong>Confidence:</strong> {{ confidence }}%
+  </div>
+
+  {% if filename %}
+  <div class="preview">
+    <img src="{{ url_for('static', filename='uploads/' ~ filename) }}" alt="Preview" />
+  </div>
+  {% endif %}
+  {% endif %}
+</section>
+
+</body>
+</html>

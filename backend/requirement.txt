@@ -1,0 +1,6 @@
+flask
+numpy
+mysql-connector-python
+torch
+torchvision
+pillow

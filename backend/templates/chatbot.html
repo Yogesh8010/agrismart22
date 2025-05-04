@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AgriSmart Chatbot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f3fff2;
+    }
+
+    .hero {
+      background: url('{{ url_for("static", filename="images/banner.jpg") }}') no-repeat center center/cover;
+      height: 250px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-shadow: 1px 1px 4px #000;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .chatbox-container {
+      max-width: 750px;
+      margin: -80px auto 40px;
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      z-index: 5;
+      position: relative;
+    }
+
+    .chatlog {
+      height: 320px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      padding: 15px;
+      background: #fefefe;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .bubble {
+      margin: 10px 0;
+      padding: 12px 16px;
+      border-radius: 20px;
+      display: inline-block;
+      max-width: 80%;
+      line-height: 1.5;
+    }
+
+    .user {
+      background-color: #c8e6c9;
+      float: right;
+      clear: both;
+    }
+
+    .bot {
+      background-color: #dcedc8;
+      float: left;
+      clear: both;
+    }
+
+    .chat-input {
+      display: flex;
+      gap: 10px;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .chat-input button {
+      padding: 12px 20px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .chat-input button:hover {
+      background: #388e3c;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      padding: 15px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo"><i class="fas fa-seedling"></i> AgriSmart 2.0</div>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/recommend">Recommendation</a></li>
+      <li><a href="/scanner">Scanner</a></li>
+      <li><a href="/chatbot" class="active">Chatbot</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1 data-aos="fade-in">👨‍🌾 Talk to AgriBot</h1>
+</section>
+
+<section class="chatbox-container" data-aos="zoom-in-up">
+  <div class="chatlog" id="chatlog">
+    {% if user_query and reply %}
+      <div class="bubble user">{{ user_query }}</div>
+      <div class="bubble bot" id="botReply">{{ reply }}</div>
+    {% endif %}
+  </div>
+
+  <form class="chat-input" method="POST">
+    <input type="text" name="query" placeholder="Ask about fertilizer, yield, pH, etc..." required />
+    <button type="submit">Send</button>
+  </form>
+</section>
+
+<footer>
+  <p>&copy; 2025 AgriSmart 2.0. All rights reserved.</p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+
+<script>
+  const botText = document.getElementById('botReply');
+  if (botText) {
+    const utter = new SpeechSynthesisUtterance(botText.textContent);
+    utter.lang = 'en-IN';
+    utter.pitch = 1;
+    utter.rate = 1;
+    window.speechSynthesis.speak(utter);
+  }
+</script>
+
+</body>
+</html>

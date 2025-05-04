@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | AgriSmart 2.0</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <style>
+    .contact-container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .contact-container h2 {
+      color: #2e7d32;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .contact-container input, .contact-container textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .contact-container button {
+      margin-top: 20px;
+      background: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      width: 100%;
+      font-weight: bold;
+    }
+
+    .contact-container button:hover {
+      background: #388e3c;
+    }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo"><i class="fas fa-seedling"></i> AgriSmart 2.0</div>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/recommend">Recommendation</a></li>
+      <li><a href="/scanner">Scanner</a></li>
+      <li><a href="/chatbot">Chatbot</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="contact-container" data-aos="fade-up">
+  <h2>Contact Us</h2>
+  <form method="POST">
+    <input type="text" name="name" placeholder="Your Full Name" required>
+    <input type="email" name="email" placeholder="Your Email Address" required>
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <p>&copy; 2025 AgriSmart 2.0. All rights reserved.</p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services | AgriSmart 2.0</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <style>
+    .service-container {
+      padding: 60px 20px;
+      text-align: center;
+      background: #f4fff0;
+    }
+
+    .service-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .service-card {
+      background: white;
+      width: 280px;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: scale(1.05);
+    }
+
+    .service-card i {
+      font-size: 40px;
+      margin-bottom: 15px;
+      color: #4CAF50;
+    }
+
+    .service-card h3 {
+      color: #2e7d32;
+      margin-bottom: 10px;
+    }
+
+    .service-card p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo"><i class="fas fa-seedling"></i> AgriSmart 2.0</div>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/recommend">Recommendation</a></li>
+      <li><a href="/scanner">Scanner</a></li>
+      <li><a href="/chatbot">Chatbot</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="service-container" data-aos="fade-up">
+  <h2>What We Offer</h2>
+  <div class="service-cards">
+    <div class="service-card" data-aos="zoom-in">
+      <i class="fas fa-search"></i>
+      <h3>Crop Scanner</h3>
+      <p>Scan plant images and detect disease using AI-powered CNN models.</p>
+    </div>
+    <div class="service-card" data-aos="zoom-in" data-aos-delay="100">
+      <i class="fas fa-vial"></i>
+      <h3>Fertilizer Guide</h3>
+      <p>Enter pH and soil details to get accurate fertilizer and pesticide suggestions.</p>
+    </div>
+    <div class="service-card" data-aos="zoom-in" data-aos-delay="200">
+      <i class="fas fa-comments"></i>
+      <h3>Smart Chatbot</h3>
+      <p>Ask farming questions and get expert help through our AI chatbot.</p>
+    </div>
+    <div class="service-card" data-aos="zoom-in" data-aos-delay="300">
+      <i class="fas fa-database"></i>
+      <h3>Yield Prediction</h3>
+      <p>Track your crop's performance and compare with historical data to predict outcomes.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 AgriSmart 2.0. All rights reserved.</p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+</body>
+</html>

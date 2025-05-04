@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AgriSmart 2.0 | Smart Farming Assistant</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <style>
+    .hero {
+      background: url("{{ url_for('static', filename='images/farm-banner.jpg') }}") center/cover no-repeat;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      color: white;
+      text-align: center;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-text {
+      z-index: 1;
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      animation: fadeInDown 1s ease-in-out;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    .hero .btn {
+      padding: 12px 25px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      color: #4CAF50;
+      background: white;
+      transition: 0.3s;
+    }
+
+    .hero .btn:hover {
+      background: #66bb6a;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .features {
+      padding: 60px 20px;
+      background: #f4fff0;
+    }
+
+    .features h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #2e7d32;
+    }
+
+    .feature-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      width: 280px;
+      border-radius: 12px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .card img {
+      width: 80px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      color: #388e3c;
+    }
+
+    .card p {
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      background: #2e7d32;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo"><i class="fas fa-seedling"></i> AgriSmart 2.0</div>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/recommend">Recommendation</a></li>
+      <li><a href="/scanner">Scanner</a></li>
+      <li><a href="/chatbot">Chatbot</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>Empowering Farmers with AI</h1>
+    <p>Analyze crops, get expert advice, and make smarter decisions — all in one place.</p>
+    <a href="/services" class="btn">Explore Features</a>
+  </div>
+</section>
+
+<section class="features">
+  <h2 data-aos="fade-up">Core Features</h2>
+  <div class="feature-cards">
+
+    <div class="card" data-aos="zoom-in" data-aos-delay="100">
+      <img src="{{ url_for('static', filename='images/crop-scan.png') }}" alt="Crop Scanner">
+      <h3>Crop Scanner</h3>
+      <p>Detect diseases from crop images with real-time analysis.</p>
+    </div>
+
+    <div class="card" data-aos="zoom-in" data-aos-delay="200">
+      <img src="{{ url_for('static', filename='images/fertilizer.png') }}" alt="Fertilizer Suggestion">
+      <h3>Fertilizer Advice</h3>
+      <p>Get personalized recommendations based on soil health and crop type.</p>
+    </div>
+
+    <div class="card" data-aos="zoom-in" data-aos-delay="300">
+      <img src="{{ url_for('static', filename='images/chatbot.png') }}" alt="Chatbot">
+      <h3>Smart Chatbot</h3>
+      <p>Ask agricultural queries and receive instant AI-powered answers.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 AgriSmart 2.0. All rights reserved.</p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+</body>
+</html>
